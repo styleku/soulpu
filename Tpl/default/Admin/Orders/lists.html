@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>后台管理首页</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="/Template/Default/style/admin.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
+<script language="JavaScript" type="text/javascript" src="/Template/Default/jscript/SpryTabbedPanels.js"></script>
+<meta name="robots" content="noindex" />
+</head>
+
+<body>
+<div id="container">
+<include file="CommonTpl:header" />
+	<ul id="sub">
+		<li><a href="http://demov6.tradingeye.com/order/adminindex.php?action=orders.home">Invoices</a></li>
+		<li><a href="http://demov6.tradingeye.com/user/adminindex.php?action=user.home">Customers</a></li>
+		<li><a href="http://demov6.tradingeye.com/user/adminindex.php?action=supplier.home">Suppliers</a></li>
+		<li><a href="http://demov6.tradingeye.com/user/adminindex.php?action=enquiry.home">Enquiries</a></li>
+	</ul>
+	<div id="content">
+		<h2>Orders <span>&raquo;</span> Invoices</h2>
+		<div class="builderBlock">
+			<h3>View Invoices</h3>
+			<form id="search" class="searchInvoices" method="post" name="SecondForm" action="http://demov6.tradingeye.com/order/adminindex.php?action=orders.dspDetails">
+				<label for="searchKeyword">View Invoice Number:</label>
+				<input type="text" name="orderid" id="searchKeyword" onfocus="if(this.value=='View Invoice Number')this.value='';" onblur="if(this.value=='')this.value='View Invoice Number';" value="View Invoice Number" maxlength="50" />
+				<input type="submit" name="go" id="searchSubmit" value="Go" />
+			</form>
+			<form id="order" method="post" name="TheForm" action="http://demov6.tradingeye.com/order/adminindex.php?action=orders.home&mstatus=&orderby=&direction=desc&page=1">
+				<label>Sort Invoices By:</label>
+				<select class="formSelect" name="orderby">
+					<option value="invoice" selected>Invoice</option>
+					<option value="date" >Order date</option>
+		
+					<option value="paymethod" >Payment method</option>
+					<option value="paystatus" >Payment status</option>
+					<option value="lastname" >Last name</option>
+					<option value="city" >City</option>
+					<option value="state" >County/State</option>
+					<option value="country" {SELECTED_ORDERBY7}>Country</option>
+		
+					<option value="alt_city" >Postage city</option>
+					<option value="alt_state" {SELECTED_ORDERBY9}>Postage county</option>
+					<option value="alt_country" {SELECTED_ORDERBY10}>Postage country</option>
+				</select>
+				<label>Status:</label>
+				<select class="formSelect" name="mstatus">
+					<option value="New" selected>New</option>
+		
+					<option value="Pending" >Pending</option>
+					<option value="Received" >Received</option>
+					<option value="Backorder" >Backorder</option>
+					<option value="Shipped" >Dispatched</option>
+					<option value="Void" >Void</option>
+					<option value="All" >All orders</option>
+		
+				</select>
+				<label>Asc.</label>
+				<input type="radio" class="radio" name="direction" value="asc"  />
+				<label>Desc.</label>
+				<input type="radio" class="radio" name="direction" value="desc" checked />
+				<input type="submit" name="Sort Orders" id="sortOrders" value="Sort Orders" />
+			</form>
+			<table>
+				<thead>
+					<tr>
+						<th class="headerInvoiceNumber">Invoice</th>
+						<th class="headerOrderDate">Order Date</th>
+						<th>Customer</th>
+						<th class="headerMethod">Method</th>
+						<th class="headerInvStatus">Status</th>
+						<th class="headerInvStatusSelect">Status</th>
+						<th class="headerInvStatus">Status</th>
+						<th class="headerPreview">View</th>
+					</tr>
+				</thead>
+				<tbody>
+					<form action="http://demov6.tradingeye.com/order/adminindex.php?action=orders.updatehome&mstatus=&orderby=&direction=desc&page=1" method="post">
+						<tr>
+							<td>10000</td>
+							<td>November 30, 2009 </td>
+							<td><a href="http://demov6.tradingeye.com/user/adminindex.php?action=user.details&id=1">Wladimir Baranoff-Rossine</a></td>
+							<td>cc</td>
+							<td>paid</td>
+							<td>
+								<select class="formSelect short" name="status[]">
+									<option value="New" selected>New</option>
+									<option value="Pending" >Pending</option>
+									<option value="Received" >Received</option>
+									<option value="Backorder" >Backorder</option>
+									<option value="Shipped" >Dispatched</option>
+									<option value="Void" >Void</option>
+									<option value="Delete">Delete</option>
+								</select>
+							</td>
+							<td>Complete</td>
+							<td><a href="http://demov6.tradingeye.com/order/adminindex.php?action=orders.dspDetails&orderid=10000" class="linkPreview">View</a><input type="hidden" name="orderid[]" value="1" /></td>
+						</tr>
+					</tbody>	
+				</table>
+				<p class="formButtonWrapper update inv"><button type="submit" class="formButton"><img src="/Template/Default/images/admin/i_refresh_alt.gif" alt="Update Orders" /> Update orders</button></p>	
+			</form>
+			<form method="post" action="#" name="frm2">
+				<div class="pagination"> 
+			        <div class="showing">
+			        	<p>Showing 1-1 of 1</p>
+			        </div>
+					<div class="pager">
+						<p>
+							&nbsp;
+							Page <strong>1</strong> of <strong>1</strong> | 
+			
+							<strong>First
+			
+							</strong>
+							( Page <select name="pagenum" onchange="sub2('&action=orders.home&mstatus=&orderby=&direction=desc')" class="formSelect pagination">
+			
+								<option value="1" selected>1</option>
+							</select> of 1 )<strong>
+							Last</strong>
+						</p>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+<include file="CommonTpl:footer" />
+</div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>后台管理首页</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="/Template/Default/style/admin.css" media="screen" />
+<meta name="robots" content="noindex" />
+<style type="text/css">
+.label {
+	float: left;
+	width: 150px;
+}
+</style>
+</head>
+
+<body>
+<div id="container">
+<include file="CommonTpl:header" />
+<include file="CommonTpl:users_menu" />
+	<div id="content">
+		<h2>管理员 <span>&raquo;</span> 管理员列表 <span>&raquo;</span> 修改管理员资料</h2>
+		<div class="builderBlock">
+			<h3>管理员资料</h3>
+			<form action="__SELF__" method="post">
+				<input type="hidden" name="admin_id" value="{$data.admin_id}" />
+				<div class="column first">
+					<table>
+						<thead>
+							<tr>
+								<th colspan="2">访问权限</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><volist name="permissions" id="list"><label class="label"><input type="checkbox" name="permissions[]" value="{$list.per_value}"<?php if ($list['check'] == 1) { echo " checked=\"checked\""; } ?> />&nbsp;{$list.per_name}</label></volist></td>		
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="column">
+					<table>
+						<thead>
+							<tr>
+								<th colspan="2">登录信息</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="first short"><label>登录名称</label></td>
+								<td><input type="text" name="username" value="{$data.admin_name}" class="formField" maxlength="30" /></td>	
+							</tr>
+							<tr>
+								<td><label>登录密码</label></td>
+								<td><input type="password" name="password" value="" class="formField" maxlength="30" /></td>
+							</tr>
+							<tr> 
+								<td><label>Email</label></td>
+								<td><input type="text" name="email" value="{$data.admin_email}" class="formField" maxlength="60" /></td>
+							</tr>
+						</tbody>
+					</table>
+					<p class="formButtonWrapper">
+						<button name="submit" type="submit" class="formButton"><img src="<?php echo C('ADMIN_IMAGES'); ?>/i_tick.gif" alt="设置管理员资料" /> 设置管理员资料</button>
+					</p>
+				</div>
+			</form>
+		</div>
+	</div>
+<include file="CommonTpl:footer" />
+</div>
+</body>
+</html>

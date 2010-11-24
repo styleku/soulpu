@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>后台管理首页</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="/Template/Default/style/admin.css" media="screen" />
+<meta name="robots" content="noindex" />
+</head>
+
+<body>
+<div id="container">
+<include file="CommonTpl:header" />
+<include file="CommonTpl:product_menu" />
+	<div id="content">
+		<h2>商品管理 <span>&raquo;</span> 分类列表</h2>
+		<div id="Acc1" class="Accordion">
+			<div class="AccordionPanel">
+				<h3 class="AccordionPanelTab">分类数 <span>4 Product(s) Listed</span></h3>
+				<div class="AccordionPanelContent">
+					<p class="buttonWrapper">
+						<a href="__URL__/AddCategorie" class="btnAdd"><span><img src="<?php echo C('ADMIN_IMAGES'); ?>/i_add.gif" alt="添加新分类" /> 添加新的顶级分类</span></a>
+					</p>
+					<form action="#" method="post">
+						<p class="formButtonWrapper alt">
+							<button type="submit" class="formButton"><img src="<?php echo C('ADMIN_IMAGES'); ?>/i_accept.gif" alt="Save Changes" /> 保存更新</button><input type="hidden" name="itemcount" value="2" />
+						</p>
+						<table>
+							<thead>
+								<tr>
+									<th class="headerSort">排序</th>
+									<th class="headerTitle">分类名称</th>
+									<th class="headerStatus">是否显示</th>
+									<th class="headerEdit">编辑</th>
+									<th class="headerDelete">删除</th>
+								</tr>
+							</thead>
+							<thead>
+								<tr>
+									<th><input type="text" class="formField short" name="sort[1]" value="1" size="2" maxlength="3"  /></th>
+									<th><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.home&amp;type=product&amp;owner=1">Fruit Of The Loom Value Weight T</a></th>
+									<th><input type="checkbox" class="checkbox" name="state[1]" value="1" checked="checked" /></th>
+									<th><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.dspProFrm&amp;type=department&amp;id=1&amp;owner=0" class="linkEdit">Edit</a></th>
+									<th><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.dspMsg&amp;msg=3&amp;type=product&amp;otype=department&amp;id=1&amp;owner=0" class="linkDelete">Delete</a></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><input type="text" class="formField short" name="sort[7]" value="2" size="2" maxlength="3"  /></td>
+									<td><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.home&amp;type=product&amp;owner=7" style="padding-left:50px;">Kustom Kit Klassic Polo Superwash 60</a></td>
+									<td><input type="checkbox" class="checkbox" name="state[7]" value="1" checked="checked" /></td>
+									<td><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.dspProFrm&amp;type=department&amp;id=7&amp;owner=0" class="linkEdit">Edit</a></td>
+									<td><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.dspMsg&amp;msg=3&amp;type=product&amp;otype=department&amp;id=7&amp;owner=0" class="linkDelete">Delete</a></td>
+								</tr>
+								<tr>
+									<td><input type="text" class="formField short" name="sort[21]" value="3" size="2" maxlength="3"  /></td>
+									<td><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.home&amp;type=product&amp;owner=21" style="padding-left:50px;">Regatta Dover Fleece Lined Jacket</a></td>
+									<td><input type="checkbox" class="checkbox" name="state[21]" value="1" checked="checked" /></td>
+									<td><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.dspProFrm&amp;type=department&amp;id=21&amp;owner=0" class="linkEdit">Edit</a></td>
+									<td><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.dspMsg&amp;msg=3&amp;type=product&amp;otype=department&amp;id=21&amp;owner=0" class="linkDelete">Delete</a></td>
+								</tr>
+								<tr>
+									<td><input type="text" class="formField short" name="sort[16]" value="4" size="2" maxlength="3"  /></td>
+									<td><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.home&amp;type=product&amp;owner=16" style="padding-left:50px;">Kustom Kit Pinpoint Oxford Short Sleeve Shirt</a></td>
+									<td><input type="checkbox" class="checkbox" name="state[16]" value="1" checked="checked" /></td>
+									<td><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.dspProFrm&amp;type=department&amp;id=16&amp;owner=0" class="linkEdit">Edit</a></td>
+									<td><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.dspMsg&amp;msg=3&amp;type=product&amp;otype=department&amp;id=16&amp;owner=0" class="linkDelete">Delete</a></td>
+								</tr>
+							</tbody>
+							<thead>
+								<tr>
+									<th><input type="text" class="formField short" name="sort[1]" value="1" size="2" maxlength="3"  /></th>
+									<th><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.home&amp;type=product&amp;owner=1">Fruit Of The Loom Value Weight T</a></th>
+									<th><input type="checkbox" class="checkbox" name="state[1]" value="1" checked="checked" /></th>
+									<th><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.dspProFrm&amp;type=department&amp;id=1&amp;owner=0" class="linkEdit">Edit</a></th>
+									<th><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.dspMsg&amp;msg=3&amp;type=product&amp;otype=department&amp;id=1&amp;owner=0" class="linkDelete">Delete</a></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><input type="text" class="formField short" name="sort[7]" value="2" size="2" maxlength="3"  /></td>
+									<td><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.home&amp;type=product&amp;owner=7" style="padding-left:50px;">Kustom Kit Klassic Polo Superwash 60</a></td>
+									<td><input type="checkbox" class="checkbox" name="state[7]" value="1" checked="checked" /></td>
+									<td><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.dspProFrm&amp;type=department&amp;id=7&amp;owner=0" class="linkEdit">Edit</a></td>
+									<td><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.dspMsg&amp;msg=3&amp;type=product&amp;otype=department&amp;id=7&amp;owner=0" class="linkDelete">Delete</a></td>
+								</tr>
+								<tr>
+									<td><input type="text" class="formField short" name="sort[21]" value="3" size="2" maxlength="3"  /></td>
+									<td><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.home&amp;type=product&amp;owner=21" style="padding-left:50px;">Regatta Dover Fleece Lined Jacket</a></td>
+									<td><input type="checkbox" class="checkbox" name="state[21]" value="1" checked="checked" /></td>
+									<td><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.dspProFrm&amp;type=department&amp;id=21&amp;owner=0" class="linkEdit">Edit</a></td>
+									<td><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.dspMsg&amp;msg=3&amp;type=product&amp;otype=department&amp;id=21&amp;owner=0" class="linkDelete">Delete</a></td>
+								</tr>
+								<tr>
+									<td><input type="text" class="formField short" name="sort[16]" value="4" size="2" maxlength="3"  /></td>
+									<td><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.home&amp;type=product&amp;owner=16" style="padding-left:50px;">Kustom Kit Pinpoint Oxford Short Sleeve Shirt</a></td>
+									<td><input type="checkbox" class="checkbox" name="state[16]" value="1" checked="checked" /></td>
+									<td><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.dspProFrm&amp;type=department&amp;id=16&amp;owner=0" class="linkEdit">Edit</a></td>
+									<td><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.dspMsg&amp;msg=3&amp;type=product&amp;otype=department&amp;id=16&amp;owner=0" class="linkDelete">Delete</a></td>
+								</tr>
+							</tbody>
+						</table>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+<include file="CommonTpl:footer" />
+</div>
+</body>
+</html>

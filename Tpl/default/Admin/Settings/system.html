@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>后台管理首页</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="/Template/Default/style/admin.css" media="screen" />
+<meta name="robots" content="noindex" />
+</head>
+
+<body>
+<div id="container">
+<include file="CommonTpl:header" />
+<include file="CommonTpl:setting_menu" />
+	<div id="content">
+		<h2>设置 <span>&raquo;</span> 系统设置<span></h2>
+		<div class="builderBlock">
+			<h3>系统设置</h3>
+			<form action="__SELF__" method="post">
+			<div class="column first">
+				<table>
+					<thead>
+						<tr>
+							<th colspan="2">系统设置</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="first"><label>Debug 模式 (PHP)</label></td>
+							<td><input type="checkbox" name="APP_DEBUG" class="checkbox" value="1" <?php if ($data['APP_DEBUG'] == 1) echo "checked=\"checkbox\"";?> /></td>
+						</tr>
+						<tr>
+							<td class="first"><label>系统编码</label></td>
+							<td><input type="text" name="SYS_ENCODING" class="formField" value="{$data.SYS_ENCODING}" /></td>
+						</tr>
+						<tr>
+							<td><label>系统邮箱</label></td>
+							<td><input type="text" name="SYS_EMAIL" class="formField" value="{$data.SYS_EMAIL}" /></td>	
+						</tr>
+						<tr>
+							<td><label>货币代码</label></td>
+							<td><input type="text" name="CURRENCY" class="formField" value="{$data.CURRENCY}" /></td>	
+						</tr>
+						<tr>
+							<td><label>商品图片路径</label></td>
+							<td><input type="text" name="PRODUCT_IMAGES" class="formField" value="{$data.PRODUCT_IMAGES}" /></td>
+						</tr>
+						<tr>
+							<td><label>系统前台图片路径</label></td>
+							<td><input type="text" name="HOME_IMAGES" class="formField" value="{$data.HOME_IMAGES}" /></td>
+						</tr>
+						<tr>
+							<td><label>后台管理图片路径</label></td>
+							<td><input type="text" name="ADMIN_IMAGES" class="formField" value="{$data.ADMIN_IMAGES}" /></td>
+						</tr>
+					</tbody>
+				</table>
+				<table>
+					<thead>
+						<tr>
+							<th colspan="2">SMTP邮件设置</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="first"><label>SMTP认证</label></td>
+							<td><input type="checkbox" name="SMTP_AUTH" class="checkbox" value="1" <?php if ($data['SMTP_AUTH'] == 1) echo "checked=\"checkbox\"";?> /></td>
+						</tr>
+						<tr>
+							<td><label>SMTP用户名</label></td>
+							<td><input type="text" name="SMTP_USERNAME" class="formField" value="{$data.SMTP_USERNAME}" /></td>
+						</tr>
+		
+						<tr>
+							<td><label>SMTP密码</label></td>
+							<td><input type="text" name="SMTP_PASSWORD" class="formField" value="{$data.SMTP_PASSWORD}" /></td>
+						</tr>
+						<tr>
+							<td><label>SMTP主机</label></td>
+							<td><input type="text" name="SMTP_HOST" class="formField" value="{$data.SMTP_HOST}" /></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="column">
+				<table>
+					<thead>
+						<tr>
+							<th colspan="2">数据库设置</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="half"><label>数据库主机</label></td>
+							<td><input type="text" name="DB_HOST" class="formField" value="{$data.DB_HOST}" /></td>
+						</tr>
+						<tr>
+		
+							<td><label>数据库名</label></td>
+							<td><input type="text" name="DB_NAME" class="formField" value="{$data.DB_NAME}" /></td>
+						</tr>
+						<tr>
+							<td><label>数据库类型</label></td>
+							<td>
+								<select name="DB_TYPE" class="formSelect">
+									<option value="mysql" selected>MySQL</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td><label>数据库用户名</label></td>
+							<td><input type="text" name="DB_USER" class="formField" value="{$data.DB_USER}" /></td>
+						</tr>
+						<tr>
+							<td><label>数据库密码</label></td>
+							<td><input type="password" name="DB_PWD" class="formField" value="{$data.DB_PWD}" /></td>
+						</tr>
+						<tr>
+							<td><label>数据库端口</label></td>
+							<td><input type="text" name="DB_PORT" class="formField" value="{$data.DB_PORT}" /></td>
+						</tr>
+						<tr>
+							<td><label>数据库表前缀</label></td>
+							<td><input type="text" name="DB_PREFIX" class="formField" value="{$data.DB_PREFIX}" /></td>
+						</tr>
+					</tbody>
+				</table>
+				<p class="formButtonWrapper">
+					<button type="submit" class="formButton"><img src="<?php echo C('ADMIN_IMAGES'); ?>/i_tick.gif" alt="更新系统设置" /> 更新系统设置</button>
+				</p>
+			</div>
+			</form>
+		</div>
+	</div>
+<include file="CommonTpl:footer" />
+</div>
+</body>
+</html>

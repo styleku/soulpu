@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>后台管理首页</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="/Template/Default/style/admin.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
+<meta name="robots" content="noindex" />
+</head>
+
+<body>
+<div id="container">
+<include file="CommonTpl:header" />
+<include file="CommonTpl:users_menu" />
+	<div id="content">
+		<h2>管理员 <span>&raquo;</span> 管理员列表</h2>
+		<div class="builderBlock">
+			<h3>管理员 <span> 目前有 1 位管理员</span></h3>
+			<p class="buttonWrapper">
+				<a href="__URL__/CreateAdmin" class="btnAdd"><span><img src="<?php echo C('ADMIN_IMAGES'); ?>/i_add.gif" alt="添加新管理员" /> 添加新管理员</span></a>
+			</p>
+			<table>
+				<thead>
+					<tr>
+						<th>姓名</th>
+						<th class="headerDateLong">最后登录时间</th>
+						<th class="headerEdit">编辑</th>
+						<th class="headerDelete">删除</th>
+					</tr>
+				</thead>
+				<tbody>
+					<volist name="data" id="list">
+					<tr>
+						<td><a href="__URL__/EditAdmin/id/{$list.admin_id}">{$list.admin_name}</a></td>
+						<td><?php echo date('Y-m-d H:i:s',$list['last_login_time']); ?></td>
+						<td><a href="__URL__/EditAdmin/id/{$list.admin_id}" class="linkEdit">编辑</a></td> 
+						<td><?php if ($list['admin_id'] == 1) { echo "&mdash;"; } else { echo "<a href=\"__URL__/DeleteAdmin/id/".$list['admin_id']."\" class=\"linkDelete\">删除</a>"; } ?></td>
+					</tr>
+					</volist>
+				</tbody>
+			</table>
+		</div>
+	</div>
+<include file="CommonTpl:footer" />
+</div>
+</body>
+</html>

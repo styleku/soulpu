@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>后台管理首页</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="/Template/Default/style/admin.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
+<meta name="robots" content="noindex" />
+</head>
+
+<body>
+<div id="container">
+<include file="CommonTpl:header" />
+<include file="CommonTpl:users_menu" />
+	<div id="content">
+		<h2>管理员 <span>&raquo;</span> 权限管理 <span>&raquo;</span> 新建管理选项</h2>
+		<div class="builderBlock">
+			<h3>添加权限选项</h3>
+			<form action="__URL__/CreatePermissions" method="post">
+				<div class="column first">
+					<table>
+						<thead>
+							<tr>
+								<th colspan="2">添加权限选项</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="first short"><label>权限名称</label></td>
+								<td><input type="text" name="per_name" value="" class="formField" maxlength="30" /></td>	
+							</tr>
+							<tr>
+								<td><label>权限标识</label></td>
+								<td><input type="text" name="per_value" value="" class="formField" maxlength="30" /></td>
+							</tr>
+						</tbody>
+					</table>
+					<p class="formButtonWrapper">
+						<button name="submit" type="submit" class="formButton"><img src="<?php echo C('ADMIN_IMAGES'); ?>/i_tick.gif" alt="新建管理选项" /> 新建管理选项</button>
+					</p>
+				</div>
+			</form>
+		</div>
+	</div>
+<include file="CommonTpl:footer" />
+</div>
+</body>
+</html>

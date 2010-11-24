@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>后台管理首页</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="/Template/Default/style/admin.css" media="screen" />
+<script type="text/javascript" src="/Template/Default/jscript/jquery-1.4.4.min.js"></script>
+<meta name="robots" content="noindex" />
+<script type="text/javascript">
+/*
+$.ajax({
+	type:"post",
+	data:""
+})
+*/
+</script>
+</head>
+
+<body>
+<div id="container">
+<include file="CommonTpl:header" />
+<include file="CommonTpl:users_menu" />
+	<div id="content">
+		<h2>管理员 <span>&raquo;</span> 权限列表</h2>
+		<div class="builderBlock">
+			<p class="buttonWrapper">
+				<a href="__URL__/CreatePermissions" class="btnAdd"><span><img src="<?php echo C('ADMIN_IMAGES'); ?>/i_add.gif" alt="添加新的权限选项" /> 添加新的权限选项</span></a>
+			</p>
+			<table>
+				<thead>
+					<tr>
+						<th>权限名称</th>
+						<th class="headerDateLong">权限标识</th>
+						<th class="headerEdit">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<volist name="data" id="list">
+					<tr>
+						<td><input type="text" name="" value="{$list.per_name}" class="formField" onblur="" /></td>
+						<td><input type="text" name="" value="{$list.per_value}" class="formField" /></td>
+						<td><a href="__URL__/EditAdmin/id/{$list.admin_id}" class="linkDelete">删除</a></td> 
+					</tr>
+					</volist>
+				</tbody>
+			</table>
+		</div>
+	</div>
+<include file="CommonTpl:footer" />
+</div>
+</body>
+</html>

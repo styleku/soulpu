@@ -13,29 +13,43 @@
 <include file="CommonTpl:header" />
 <include file="CommonTpl:product_menu" />
 	<div id="content">
-		<h2>Builder <span>&raquo;</span> Shop Builder <span>&raquo;</span> Add New Product</h2>
-		<p id="builderCrumbs">You are building: <span><a class='breadcrumbs' href="#">Home Page</a>  &raquo;&nbsp;Add product</span></p>
+		<h2>商品管理 <span>&raquo;</span> 添加新的商品</h2>
 		<div class="builderBlock">
-			<h3>Product Builder</h3>
-			<form action="#" id="main_form" method="POST" name="ThisForm" enctype="multipart/form-data" onsubmit="return valProductBuilder()">
+			<h3>添加新的商品</h3>
+			<form action="#" id="main_form" method="POST" name="ThisForm" enctype="multipart/form-data">
 				<table>
 					<thead>
 						<tr>
-							<th colspan="2">Product Basics</th>
+							<th colspan="2">基本信息</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td class="first"><label>Product Title <span>*</span></label></td>
+							<td class="first"><label>选择商品所属分类 <span>*</span></label></td>
+							<td>
+								<select name="attributeid" id="attributeid" class="formSelect">
+									<volist name="cat_list" id="list">
+									<if condition="$list['pid'] eq 0">
+									<optgroup>
+									</if>
+										<option value="{$list.id}">{$list.name}</option>
+									<if condition="$list['pid'] eq 0">
+									</optgroup>
+									</if>
+									</volist>
+								</select></td>
+						</tr>
+						<tr>
+							<td class="first"><label>商品名称 <span>*</span></label></td>
 							<td><input type="text" class="formField long" id="title" name="title" value="" onBlur="changevalue();"  maxlength="255" /></td>
 						</tr>
 						<tr>
-							<td class="first"><label>Product Code <span>*</span></label></td>
+							<td class="first"><label>商品代码 <span>*</span></label></td>
 							<td><input type="text" class="formField short" id="sku" name="sku" value="" size="5" maxlength="50" /></td>
 						</tr>
 						<tr>
-							<td class="first"><label>Price <span>*</span></label></td>
-							<td><input type="text" class="formField short" id="price" name="price" value="" onBlur="this.form.price.value=filterNum(this.form.price.value);" size="5" maxlength="12"  /> Enter price exclusive of VAT</td>
+							<td class="first"><label>价格 <span>*</span></label></td>
+							<td><input type="text" class="formField short" id="price" name="price" value="" onBlur="this.form.price.value=filterNum(this.form.price.value);" size="5" maxlength="12"  /> 元</td>
 						</tr>
 						<tr>
 							<td class="first"><label>RRP</label></td>
@@ -46,37 +60,33 @@
 				<table>
 					<thead>
 						<tr>
-							<th colspan="2">Status &amp; Description</th>
+							<th colspan="2">状态和描述</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td class="first"><label>On/Off</label></td>
+							<td class="first"><label>是否显示</label></td>
 							<td><input type="checkbox" class="checkbox" id="active" name="state" value="1" checked='checked' /></td>
 						</tr>
 						<tr>
-							<td class="first"><label>Short Description</label></td>
+							<td class="first"><label>简短描述</label></td>
 							<td><textarea rows="5" cols="1" class="formField long" name="short_description"></textarea></td>
 						</tr>
 						<tr>
-							<td class="first"><label>Long Description</label></td>
-							<td><div><input type="hidden" id="content" name="content" value="" style="display:none" /><input type="hidden" id="content___Config" value="" style="display:none" /><iframe id="content___Frame" src="http://demov6.tradingeye.com/FCKeditor/editor/fckeditor.html?InstanceName=content&amp;Toolbar=Default" width="100%" height="300" frameborder="0" scrolling="no"></iframe></div></td>
+							<td class="first"><label>详细描述</label></td>
+							<td><textarea rows="5" cols="1" class="formField long" name="content"></textarea></td>
 						</tr>
 					</tbody>
 				</table>
 				<table>
 					<thead>
 						<tr>
-							<th colspan="2">Options</th>
+							<th colspan="2">选项</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td class="first"><label>VAT/Tax</label></td>
-							<td><input type="checkbox" class="checkbox" id="vat" name="taxable" value="1"   /></td>
-						</tr>
-						<tr>
-							<td class="first"><label>On Sale</label></td>
+							<td class="first"><label>促销</label></td>
 							<td><input type="checkbox" class="checkbox" id="on_sale" name="sale" value="1"  /></td>
 						</tr>
 						<tr>
@@ -88,7 +98,7 @@
 							<td><input type="checkbox" class="checkbox" id="volume_discounts" name="vdiscount" value="1"  /></td>
 						</tr>
 						<tr>
-							<td class="first"><label>Show "Add to Basket" Button</label><br /></td>
+							<td class="first"><label>显示“添加到购物车”按钮</label><br /></td>
 							<td><input type="checkbox" class="checkbox" id="shopping_basket" name="cart_button" value="1" checked='checked' /></td>
 						</tr>
 						<tr>
@@ -100,12 +110,12 @@
 				<table>
 					<thead>
 						<tr>
-							<th colspan="2">Product Attributes</th>
+							<th colspan="2">商品属性</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td class="first"><label>Select a Product Attribute</label></td>
+							<td class="first"><label>选择一个产品属性模板</label></td>
 							<td>
 								<select name="attributeid" id="attributeid" class="formSelect" onchange="attribute(this.value)">
 									<optgroup>
@@ -121,12 +131,12 @@
 				<table>
 					<thead>
 						<tr>
-							<th colspan="2">Layout</th>
+							<th colspan="2">商品详细信息模板</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td class="first"><label>Select a Layout</label></td>
+							<td class="first"><label>选择一个模板</label></td>
 							<td>								
 								<select class="formSelect" id="layout" name="layout">
 									<option value="layout.htm"selected>layout.htm</option>
@@ -148,14 +158,14 @@
 				<table>
 					<thead>
 						<tr>
-							<th>Default Images</th>
-							<th>Gallery Images</th>
+							<th>默认图片</th>
+							<th>商品图库</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr> 
 							<td class="half">
-								<p>These are the three default images used by Tradingeye, as shown in product lists, product info pages and the "View Larger Image" pages.</p>
+								<p>这三个图片是一个商品正常显示必需的。</p>
 								<div class="imgBlock">
 									<label for="img_browse_a">Department List Thumbnail</label>
 									<input class="imageGallery" id="img_browse_a" type="file" name="image1" />
@@ -262,29 +272,29 @@
 				<table>
 					<thead>
 						<tr>
-							<th colspan="2">Search Engine Optimisation</th>
+							<th colspan="2">搜索引擎优化 - SEO</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td class="first"><label>Filename (URL) <span>*</span></label></td>
+							<td class="first"><label>自定义地址 (URL) <span>*</span></label></td>
 							<td><input type="text" class="formField long" id="seo_title" name="seo_title" value="" maxlength="255" /></td>
 						</tr>
 						<tr>
-							<td class="first"><label>Meta Title</label><br /><span>(leave blank to use department title)</span></td>
+							<td class="first"><label>Meta Title</label><br /><span>(留空默认显示商品名称)</span></td>
 							<td><input type="text" class="formField long" id="meta_title" name="meta_title" value="" /></td>
 						</tr>
 						<tr>
-							<td class="first"><label>Meta Description</label><br /><span>(leave blank to use global description)</span></td>
+							<td class="first"><label>Meta Description</label><br /><span>(留空显示全局描述)</span></td>
 							<td><textarea rows="5" cols="1" class="formField long" id="meta_description" name="meta_description"></textarea></td>
 						</tr>
 						<tr>
-							<td class="first"><label>Meta Keywords</label><br /><span>(leave blank to use global keywords)</span></td>
+							<td class="first"><label>Meta Keywords</label><br /><span>(留空显示全局关键字)</span></td>
 							<td><textarea rows="5" cols="1" class="formField long" id="keywords" name="keywords" ></textarea></td>
 						</tr>
 					</tbody>
 				</table>
-				<p class="formButtonWrapper"><button type="submit" class="formButton"><img src="<?php echo C('ADMIN_IMAGES'); ?>/i_add.gif" alt="i_add" /> Add product</button></p>
+				<p class="formButtonWrapper"><button type="submit" class="formButton"><img src="<?php echo C('ADMIN_IMAGES'); ?>/i_add.gif" alt="i_add" /> 添加新商品</button></p>
 			</form>
 		</div>
 	</div>

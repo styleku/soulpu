@@ -12,55 +12,27 @@
 <div id="container">
 <include file="CommonTpl:header" />
 	<div id="content">
-		<h2>Admin <span>&raquo;</span> File Manager</h2>
+		<h2>文件管理 <span>&raquo;</span> 目录</h2>
 		<div class="builderBlock">
-			<h3>File Manager</h3>
+			<h3>文件管理</h3>
 			<table>
 				<thead>
 					<tr>
-						<th>Directory</th>
-						<th>Contents</th>
-						<th class="headerAddFile">Add</th>
-						<th class="headerViewFiles">View files</th>
+						<th>目录</th>
+						<th>内容</th>
+						<th class="headerAddFile">添加</th>
+						<th class="headerViewFiles">查看文件</th>
 					</tr>
 				</thead>
 				<tbody>
+					<volist name="data" id="list">
 					<tr>
-						<td>/images/department/</td>
-						<td>Department Images</td>
-						<td><a href="http://demov6.tradingeye.com/admin/adminindex.php?action=file.uploadFrm&dir=department" class="linkFile">Add</a></td>
-						<td><a href="http://demov6.tradingeye.com/admin/adminindex.php?action=file.list&dir=department" class="linkPreview">View Files</a></td>
+						<td><a href="__URL__/ViewFile/Dir/{$list}">/images/{$list}</a></td>
+						<td>{$list} Images</td>
+						<td><a href="__URL__/AddFile/Dir/{$list}" class="linkFile">添加</a></td>
+						<td><a href="__URL__/ViewFile/Dir/{$list}" class="linkPreview">查看文件</a></td>
 					</tr>
-					<tr>
-						<td>/images/product/</td>
-						<td>Product Images</td>
-						<td><a href="__URL__/AddFile" class="linkFile">Add</a></td>
-						<td><a href="__URL__/ViewFile" class="linkPreview">View Files</a></td>
-					</tr>
-					<tr>
-						<td>/images/content/</td>
-						<td>Content Images</td>
-						<td><a href="http://demov6.tradingeye.com/admin/adminindex.php?action=file.uploadFrm&dir=content" class="linkFile">Add</a></td>
-						<td><a href="http://demov6.tradingeye.com/admin/adminindex.php?action=file.list&dir=content" class="linkPreview">View Files</a></td>
-					</tr>
-					<tr>
-						<td>/images/menu/</td>
-						<td>Menu Images</td>
-						<td><a href="http://demov6.tradingeye.com/admin/adminindex.php?action=file.uploadFrm&dir=menu" class="linkFile">Add</a></td>
-						<td><a href="http://demov6.tradingeye.com/admin/adminindex.php?action=file.list&dir=menu" class="linkPreview">View Files</a></td>
-					</tr>
-					<tr>
-						<td>/images/options/</td>
-						<td>Option Images</td>
-						<td><a href="http://demov6.tradingeye.com/admin/adminindex.php?action=file.uploadFrm&dir=options" class="linkFile">Add</a></td>
-						<td><a href="http://demov6.tradingeye.com/admin/adminindex.php?action=file.list&dir=options" class="linkPreview">View Files</a></td>
-					</tr>
-					<tr>
-						<td>/graphics/admin/</td>
-						<td>Admin Website Images</td>
-						<td><a href="http://demov6.tradingeye.com/admin/adminindex.php?action=file.uploadFrm&dir=admin/blue" class="linkFile">Add</a></td>
-						<td><a href="http://demov6.tradingeye.com/admin/adminindex.php?action=file.list&dir=admin/blue" class="linkPreview">View Files</a></td>
-					</tr>
+					</volist>
 				</tbody>
 			</table>
 		</div>

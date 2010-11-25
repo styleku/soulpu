@@ -3,16 +3,22 @@
 <head>
 <title>后台管理首页</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="robots" content="noindex" />
 <link rel="stylesheet" type="text/css" href="/Template/Default/style/admin.css" media="screen" />
 <script type="text/javascript" src="/Template/Default/jscript/jquery-1.4.4.min.js"></script>
-<meta name="robots" content="noindex" />
 <script type="text/javascript">
-/*
-$.ajax({
-	type:"post",
-	data:""
-})
-*/
+function postdata(name,id){
+	$.ajax({
+		type: "POST",
+		url: "__URL__/EditPermission/id/"+id,
+		data: "name="+name+"&value="+$("#"+name+"_"+id).val(),
+		//data: "name="+$("#per_name_"+id).val(),
+		datatype:"text",
+		success: function(data){
+			//alert(data);
+		}
+	});       
+}
 </script>
 </head>
 
@@ -37,9 +43,9 @@ $.ajax({
 				<tbody>
 					<volist name="data" id="list">
 					<tr>
-						<td><input type="text" name="" value="{$list.per_name}" class="formField" onblur="" /></td>
-						<td><input type="text" name="" value="{$list.per_value}" class="formField" /></td>
-						<td><a href="__URL__/EditAdmin/id/{$list.admin_id}" class="linkDelete">删除</a></td> 
+						<td><input type="text" name="" id="per_name_{$list.per_id}" value="{$list.per_name}" class="formField" onblur="postdata('per_name',{$list.per_id});" /></td>
+						<td><input type="text" name="" id="per_value_{$list.per_id}" value="{$list.per_value}" class="formField" onblur="postdata('per_value',{$list.per_id});" /></td>
+						<td><a href="__URL__/EditAdmin/id/{$list.per_id}" class="linkDelete">删除</a></td> 
 					</tr>
 					</volist>
 				</tbody>

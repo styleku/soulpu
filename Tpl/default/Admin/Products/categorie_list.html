@@ -34,69 +34,28 @@
 									<th class="headerDelete">删除</th>
 								</tr>
 							</thead>
+							<volist name="data" id="list">
+							<if condition="$list['pid'] eq 0">
 							<thead>
 								<tr>
-									<th><input type="text" class="formField short" name="sort[1]" value="1" size="2" maxlength="3"  /></th>
-									<th><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.home&amp;type=product&amp;owner=1">Fruit Of The Loom Value Weight T</a></th>
-									<th><input type="checkbox" class="checkbox" name="state[1]" value="1" checked="checked" /></th>
-									<th><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.dspProFrm&amp;type=department&amp;id=1&amp;owner=0" class="linkEdit">Edit</a></th>
-									<th><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.dspMsg&amp;msg=3&amp;type=product&amp;otype=department&amp;id=1&amp;owner=0" class="linkDelete">Delete</a></th>
+									<th style="text-align:left"><input type="text" class="formField short" name="sort[1]" value="{$list.sort}" size="2" maxlength="3"  /></th>
+									<th style="text-align:left"><a href="__URL__/EditCategories/id/{$list.id}">{$list.name}</a> - {$list.mark}</th>
+									<th style="text-align:center"><input type="checkbox" class="checkbox" name="state[1]" value="1" checked="checked" /></th>
+									<th><a href="#{$list.id}" class="linkEdit">Edit</a></th>
+									<th><a href="#{$list.id}" class="linkDelete">Delete</a></th>
 								</tr>
 							</thead>
 							<tbody>
+							<else/>
 								<tr>
-									<td><input type="text" class="formField short" name="sort[7]" value="2" size="2" maxlength="3"  /></td>
-									<td><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.home&amp;type=product&amp;owner=7" style="padding-left:50px;">Kustom Kit Klassic Polo Superwash 60</a></td>
+									<td><input type="text" class="formField short" name="sort[7]" value="{$list.sort}" size="2" maxlength="3"  /></td>
+									<td><a href="__URL__/EditCategories/id/{$list.id}" style="padding-left:50px;">{$list.name}</a> - {$list.mark}</td>
 									<td><input type="checkbox" class="checkbox" name="state[7]" value="1" checked="checked" /></td>
-									<td><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.dspProFrm&amp;type=department&amp;id=7&amp;owner=0" class="linkEdit">Edit</a></td>
-									<td><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.dspMsg&amp;msg=3&amp;type=product&amp;otype=department&amp;id=7&amp;owner=0" class="linkDelete">Delete</a></td>
+									<td><a href="#{$list.id}" class="linkEdit">Edit</a></td>
+									<td><a href="#{$list.id}" class="linkDelete">Delete</a></td>
 								</tr>
-								<tr>
-									<td><input type="text" class="formField short" name="sort[21]" value="3" size="2" maxlength="3"  /></td>
-									<td><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.home&amp;type=product&amp;owner=21" style="padding-left:50px;">Regatta Dover Fleece Lined Jacket</a></td>
-									<td><input type="checkbox" class="checkbox" name="state[21]" value="1" checked="checked" /></td>
-									<td><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.dspProFrm&amp;type=department&amp;id=21&amp;owner=0" class="linkEdit">Edit</a></td>
-									<td><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.dspMsg&amp;msg=3&amp;type=product&amp;otype=department&amp;id=21&amp;owner=0" class="linkDelete">Delete</a></td>
-								</tr>
-								<tr>
-									<td><input type="text" class="formField short" name="sort[16]" value="4" size="2" maxlength="3"  /></td>
-									<td><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.home&amp;type=product&amp;owner=16" style="padding-left:50px;">Kustom Kit Pinpoint Oxford Short Sleeve Shirt</a></td>
-									<td><input type="checkbox" class="checkbox" name="state[16]" value="1" checked="checked" /></td>
-									<td><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.dspProFrm&amp;type=department&amp;id=16&amp;owner=0" class="linkEdit">Edit</a></td>
-									<td><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.dspMsg&amp;msg=3&amp;type=product&amp;otype=department&amp;id=16&amp;owner=0" class="linkDelete">Delete</a></td>
-								</tr>
-							</tbody>
-							<thead>
-								<tr>
-									<th><input type="text" class="formField short" name="sort[1]" value="1" size="2" maxlength="3"  /></th>
-									<th><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.home&amp;type=product&amp;owner=1">Fruit Of The Loom Value Weight T</a></th>
-									<th><input type="checkbox" class="checkbox" name="state[1]" value="1" checked="checked" /></th>
-									<th><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.dspProFrm&amp;type=department&amp;id=1&amp;owner=0" class="linkEdit">Edit</a></th>
-									<th><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.dspMsg&amp;msg=3&amp;type=product&amp;otype=department&amp;id=1&amp;owner=0" class="linkDelete">Delete</a></th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><input type="text" class="formField short" name="sort[7]" value="2" size="2" maxlength="3"  /></td>
-									<td><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.home&amp;type=product&amp;owner=7" style="padding-left:50px;">Kustom Kit Klassic Polo Superwash 60</a></td>
-									<td><input type="checkbox" class="checkbox" name="state[7]" value="1" checked="checked" /></td>
-									<td><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.dspProFrm&amp;type=department&amp;id=7&amp;owner=0" class="linkEdit">Edit</a></td>
-									<td><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.dspMsg&amp;msg=3&amp;type=product&amp;otype=department&amp;id=7&amp;owner=0" class="linkDelete">Delete</a></td>
-								</tr>
-								<tr>
-									<td><input type="text" class="formField short" name="sort[21]" value="3" size="2" maxlength="3"  /></td>
-									<td><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.home&amp;type=product&amp;owner=21" style="padding-left:50px;">Regatta Dover Fleece Lined Jacket</a></td>
-									<td><input type="checkbox" class="checkbox" name="state[21]" value="1" checked="checked" /></td>
-									<td><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.dspProFrm&amp;type=department&amp;id=21&amp;owner=0" class="linkEdit">Edit</a></td>
-									<td><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.dspMsg&amp;msg=3&amp;type=product&amp;otype=department&amp;id=21&amp;owner=0" class="linkDelete">Delete</a></td>
-								</tr>
-								<tr>
-									<td><input type="text" class="formField short" name="sort[16]" value="4" size="2" maxlength="3"  /></td>
-									<td><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.home&amp;type=product&amp;owner=16" style="padding-left:50px;">Kustom Kit Pinpoint Oxford Short Sleeve Shirt</a></td>
-									<td><input type="checkbox" class="checkbox" name="state[16]" value="1" checked="checked" /></td>
-									<td><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.dspProFrm&amp;type=department&amp;id=16&amp;owner=0" class="linkEdit">Edit</a></td>
-									<td><a href="http://demov6.tradingeye.com/ecom/adminindex.php?action=ec_show.dspMsg&amp;msg=3&amp;type=product&amp;otype=department&amp;id=16&amp;owner=0" class="linkDelete">Delete</a></td>
-								</tr>
+							</if>
+							</volist>
 							</tbody>
 						</table>
 					</form>

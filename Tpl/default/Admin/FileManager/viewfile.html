@@ -3,136 +3,41 @@
 <head>
 <title>后台管理首页</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="/Template/Default/style/admin.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
 <meta name="robots" content="noindex" />
+<link rel="stylesheet" type="text/css" href="/Template/Default/style/admin.css" media="screen" />
+<script type="text/javascript" src="/Template/Default/jscript/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="/Template/Default/jscript/thickbox.js"></script>
+<link rel="stylesheet" href="/Template/Default/style/thickbox.css" type="text/css" media="screen" />
 </head>
 
 <body>
 <div id="container">
 <include file="CommonTpl:header" />
 	<div id="content">
-		<h2>Admin <span>&raquo;</span> File Manager <span>&raquo;</span> View Files</h2>
+		<h2>文件管理 <span>&raquo;</span> 目录 <span>&raquo;</span> 查看文件</h2>
 		<div class="builderBlock">
-			<h3>Contents of /images/options/: <span>15 files found Files Found</h3>
+			<h3>路径 /images/<?php echo $_GET['Dir']; ?>/: <span>{$count} files found Files Found</h3>
 			<p class="buttonWrapper">
-				<a href="http://demov6.tradingeye.com/admin/adminindex.php?action=file.uploadFrm&dir=options"><span><img src="<?php echo C('ADMIN_IMAGES'); ?>/i_add.gif" alt="Add New File" /> Add New File</span></a>
+				<a href="__URL__/AddFile/Dir/<?php echo $_GET['Dir']; ?>"><span><img src="<?php echo C('ADMIN_IMAGES'); ?>/i_add.gif" alt="上传新文件" /> 上传新文件</span></a>
 			</p>
 			<table>
 				<thead>
 					<tr>
-						<th>Filename</th>
-		
-						<th>File Size</th>
-						<th class="headerPreview">Preview</th>
-						<th class="headerDelete">Delete</th>
+						<th>文件名</th>
+						<th>文件大小</th>
+						<th class="headerPreview">预览</th>
+						<th class="headerDelete">删除</th>
 					</tr>
 				</thead>
 				<tbody>
-		
+					<volist name="data" id="list">
 					<tr>
-		
-						<td>Polo_ken.gif</td>
-						<td>10392</td>
-						<td><a href="http://demov6.tradingeye.com/images/options/Polo_ken.gif" onClick="PopWindow()" target="windowname" class="linkPreview">Preview</a></td>
-						<td><a href="http://demov6.tradingeye.com/admin/adminindex.php?action=file.delete&dir=options&fname=Polo_ken.gif"  onclick="if(confirm('Are you sure would like to delete the file Polo_ken.gif?')){return true}else{return false}" class="linkDelete">Delete</a></td>
+						<td><a href="/images/<?php echo $_GET['Dir']; ?>/{$list.name}" class="thickbox">{$list.name}</a></td>
+						<td>{$list.size}</td>
+						<td><a href="/images/<?php echo $_GET['Dir']; ?>/{$list.name}" class="thickbox linkPreview">Preview</a></td>
+						<td><a href="#" onclick="if(confirm('确定要删除这个文件吗？删除后无法恢复')){return true}else{return false}" class="linkDelete">Delete</a></td>
 					</tr>
-					<tr>
-						<td>grey_woodland_camo.jpg</td>
-		
-						<td>41419</td>
-						<td><a href="http://demov6.tradingeye.com/images/options/grey_woodland_camo.jpg" onClick="PopWindow()" target="windowname" class="linkPreview">Preview</a></td>
-						<td><a href="http://demov6.tradingeye.com/admin/adminindex.php?action=file.delete&dir=options&fname=grey_woodland_camo.jpg"  onclick="if(confirm('Are you sure would like to delete the file grey_woodland_camo.jpg?')){return true}else{return false}" class="linkDelete">Delete</a></td>
-					</tr>
-					<tr>
-						<td>how_to_draw_a_dragon_head.jpg</td>
-						<td>36816</td>
-		
-						<td><a href="http://demov6.tradingeye.com/images/options/how_to_draw_a_dragon_head.jpg" onClick="PopWindow()" target="windowname" class="linkPreview">Preview</a></td>
-						<td><a href="http://demov6.tradingeye.com/admin/adminindex.php?action=file.delete&dir=options&fname=how_to_draw_a_dragon_head.jpg"  onclick="if(confirm('Are you sure would like to delete the file how_to_draw_a_dragon_head.jpg?')){return true}else{return false}" class="linkDelete">Delete</a></td>
-					</tr>
-					<tr>
-						<td>yellow_woodland_camo.jpg</td>
-						<td>65948</td>
-						<td><a href="http://demov6.tradingeye.com/images/options/yellow_woodland_camo.jpg" onClick="PopWindow()" target="windowname" class="linkPreview">Preview</a></td>
-		
-						<td><a href="http://demov6.tradingeye.com/admin/adminindex.php?action=file.delete&dir=options&fname=yellow_woodland_camo.jpg"  onclick="if(confirm('Are you sure would like to delete the file yellow_woodland_camo.jpg?')){return true}else{return false}" class="linkDelete">Delete</a></td>
-					</tr>
-					<tr>
-						<td>red_woodland_camo.jpg</td>
-						<td>44318</td>
-						<td><a href="http://demov6.tradingeye.com/images/options/red_woodland_camo.jpg" onClick="PopWindow()" target="windowname" class="linkPreview">Preview</a></td>
-						<td><a href="http://demov6.tradingeye.com/admin/adminindex.php?action=file.delete&dir=options&fname=red_woodland_camo.jpg"  onclick="if(confirm('Are you sure would like to delete the file red_woodland_camo.jpg?')){return true}else{return false}" class="linkDelete">Delete</a></td>
-		
-					</tr>
-					<tr>
-						<td>GLD.jpg</td>
-						<td>698</td>
-						<td><a href="http://demov6.tradingeye.com/images/options/GLD.jpg" onClick="PopWindow()" target="windowname" class="linkPreview">Preview</a></td>
-						<td><a href="http://demov6.tradingeye.com/admin/adminindex.php?action=file.delete&dir=options&fname=GLD.jpg"  onclick="if(confirm('Are you sure would like to delete the file GLD.jpg?')){return true}else{return false}" class="linkDelete">Delete</a></td>
-					</tr>
-		
-					<tr>
-						<td>blue_woodland_camo.jpg</td>
-						<td>47544</td>
-						<td><a href="http://demov6.tradingeye.com/images/options/blue_woodland_camo.jpg" onClick="PopWindow()" target="windowname" class="linkPreview">Preview</a></td>
-						<td><a href="http://demov6.tradingeye.com/admin/adminindex.php?action=file.delete&dir=options&fname=blue_woodland_camo.jpg"  onclick="if(confirm('Are you sure would like to delete the file blue_woodland_camo.jpg?')){return true}else{return false}" class="linkDelete">Delete</a></td>
-					</tr>
-					<tr>
-		
-						<td>BLU.jpg</td>
-						<td>521</td>
-						<td><a href="http://demov6.tradingeye.com/images/options/BLU.jpg" onClick="PopWindow()" target="windowname" class="linkPreview">Preview</a></td>
-						<td><a href="http://demov6.tradingeye.com/admin/adminindex.php?action=file.delete&dir=options&fname=BLU.jpg"  onclick="if(confirm('Are you sure would like to delete the file BLU.jpg?')){return true}else{return false}" class="linkDelete">Delete</a></td>
-					</tr>
-					<tr>
-						<td>woodland_camo_lg_ds.jpg</td>
-		
-						<td>46254</td>
-						<td><a href="http://demov6.tradingeye.com/images/options/woodland_camo_lg_ds.jpg" onClick="PopWindow()" target="windowname" class="linkPreview">Preview</a></td>
-						<td><a href="http://demov6.tradingeye.com/admin/adminindex.php?action=file.delete&dir=options&fname=woodland_camo_lg_ds.jpg"  onclick="if(confirm('Are you sure would like to delete the file woodland_camo_lg_ds.jpg?')){return true}else{return false}" class="linkDelete">Delete</a></td>
-					</tr>
-					<tr>
-						<td>a.jpg</td>
-						<td>9740</td>
-		
-						<td><a href="http://demov6.tradingeye.com/images/options/a.jpg" onClick="PopWindow()" target="windowname" class="linkPreview">Preview</a></td>
-						<td><a href="http://demov6.tradingeye.com/admin/adminindex.php?action=file.delete&dir=options&fname=a.jpg"  onclick="if(confirm('Are you sure would like to delete the file a.jpg?')){return true}else{return false}" class="linkDelete">Delete</a></td>
-					</tr>
-					<tr>
-						<td>NRD.jpg</td>
-						<td>612</td>
-						<td><a href="http://demov6.tradingeye.com/images/options/NRD.jpg" onClick="PopWindow()" target="windowname" class="linkPreview">Preview</a></td>
-		
-						<td><a href="http://demov6.tradingeye.com/admin/adminindex.php?action=file.delete&dir=options&fname=NRD.jpg"  onclick="if(confirm('Are you sure would like to delete the file NRD.jpg?')){return true}else{return false}" class="linkDelete">Delete</a></td>
-					</tr>
-					<tr>
-						<td>RED.jpg</td>
-						<td>560</td>
-						<td><a href="http://demov6.tradingeye.com/images/options/RED.jpg" onClick="PopWindow()" target="windowname" class="linkPreview">Preview</a></td>
-						<td><a href="http://demov6.tradingeye.com/admin/adminindex.php?action=file.delete&dir=options&fname=RED.jpg"  onclick="if(confirm('Are you sure would like to delete the file RED.jpg?')){return true}else{return false}" class="linkDelete">Delete</a></td>
-		
-					</tr>
-					<tr>
-						<td>PNK.jpg</td>
-						<td>489</td>
-						<td><a href="http://demov6.tradingeye.com/images/options/PNK.jpg" onClick="PopWindow()" target="windowname" class="linkPreview">Preview</a></td>
-						<td><a href="http://demov6.tradingeye.com/admin/adminindex.php?action=file.delete&dir=options&fname=PNK.jpg"  onclick="if(confirm('Are you sure would like to delete the file PNK.jpg?')){return true}else{return false}" class="linkDelete">Delete</a></td>
-					</tr>
-		
-					<tr>
-						<td>book.jpg</td>
-						<td>10699</td>
-						<td><a href="http://demov6.tradingeye.com/images/options/book.jpg" onClick="PopWindow()" target="windowname" class="linkPreview">Preview</a></td>
-						<td><a href="http://demov6.tradingeye.com/admin/adminindex.php?action=file.delete&dir=options&fname=book.jpg"  onclick="if(confirm('Are you sure would like to delete the file book.jpg?')){return true}else{return false}" class="linkDelete">Delete</a></td>
-					</tr>
-					<tr>
-		
-						<td>verdana.jpg</td>
-						<td>59724</td>
-						<td><a href="http://demov6.tradingeye.com/images/options/verdana.jpg" onClick="PopWindow()" target="windowname" class="linkPreview">Preview</a></td>
-						<td><a href="http://demov6.tradingeye.com/admin/adminindex.php?action=file.delete&dir=options&fname=verdana.jpg"  onclick="if(confirm('Are you sure would like to delete the file verdana.jpg?')){return true}else{return false}" class="linkDelete">Delete</a></td>
-					</tr>
+					</volist>
 				<tbody>
 			</table>
 		</div>

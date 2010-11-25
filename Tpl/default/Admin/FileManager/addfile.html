@@ -12,25 +12,25 @@
 <div id="container">
 <include file="CommonTpl:header" />
 	<div id="content">
-		<h2>Admin <span>&raquo;</span> File Manager <span>&raquo;</span> Add Files</h2>
+		<h2>文件管理 <span>&raquo;</span> 目录 <span>&raquo;</span> 上传文件</h2>
 		<div class="builderBlock">
-			<h3>File Manager</h3>
-			<p>To add a file to your Tradingeye system, choose browse to find the file locally on your machine and press upload to transfer it to Tradingeye.  If there is a conflict with a file that has the same name, Tradingeye will overwrite the existing file with the new file uploaded.</p>
-			<form action="http://demov6.tradingeye.com/admin/adminindex.php?action=file.upload&which=product" method="post" enctype="multipart/form-data" name="ThisForm" id="ThisForm" onsubmit="return fileUploadExt(this.thisfile, '.jpg, .jpeg, .gif, pjpeg');">
-				<input type="hidden" name="dir" value="product">
+			<h3>文件管理</h3>
+			<p>上传文件到系统</p>
+			<form action="#" method="post" enctype="multipart/form-data">
+				<input type="hidden" name="dir" value="<?php echo $_GET['Dir']; ?>" />
 				<table>
 					<thead>
 						<tr>
-							<th colspan="2">Upload File(s)</th>
+							<th colspan="2">上传文件(s)</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td class="first"><label>Upload Destination</label></td>
-							<td>/images/product/</td>
+							<td class="first"><label>上传至服务器上的路径</label></td>
+							<td>/images/<?php echo $_GET['Dir']; ?>/</td>
 						</tr>
 						<tr>
-							<td><label>Choose File(s)</td>
+							<td><label>选择本地文件(s)</td>
 							<td>
 								<input type="file" name="thisfile" class="img-submit-btn" />
 							</td>
@@ -38,7 +38,7 @@
 					</tbody>
 				</table>
 				<p class="formButtonWrapper">
-					<button type="submit" class="formButton"><img src="<?php echo C('ADMIN_IMAGES'); ?>/i_tick.gif" alt="Upload File" /> Upload File</button>
+					<button type="submit" class="formButton"><img src="<?php echo C('ADMIN_IMAGES'); ?>/i_tick.gif" alt="上传文件到服务器" /> 上传文件到服务器</button>
 				</p>
 			</form>
 		</div>

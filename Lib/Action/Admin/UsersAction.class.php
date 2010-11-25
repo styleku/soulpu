@@ -84,5 +84,24 @@ class UsersAction extends Action
 			$this->display('createpermission');
 		}
 	}
+	
+	public function EditPermission()
+	{
+		$id = $_GET['id'];
+		$name = $_POST['name'];
+		$value = $_POST['value'];
+		
+		$User = M('permissions');
+		//$data = serialize($_POST);
+		//$data = '123';
+		//$datas['per_name'] = $data;
+		//$User->add($datas);
+		
+		$User->per_id = $id;
+		$User->$name = $value;
+		
+		$User->save();
+		
+	}
 }
 ?>

@@ -13,13 +13,27 @@ class ProductsAction extends Action
 	
 	public function Categories()
 	{
+		$User = D('categories');
+		$data = $User->where("cat_is_show = 1")->select();
+		
+		$list = new TreeModel();
+		//print_r($data);
+		foreach ($data as $value) {
+			$list->setNode($value['cat_id'], $value['cat_pid'], $value['cat_name'], $value['cat_value'],$value['cat_sort']);
+		}
+		$getdata = $list->getChilds();
+		foreach ($getdata as $key => $id)
+		{
+			$datas[] = $list->getList($id);
+		}
+		//print_r($datas);
+		$this->assign('data',$datas);
 		$this->display('categorie_list');
 	}
 	
 	public function AddCategorie()
 	{
 		if ($_POST) {
-			print_r($_POST);
 			$User = D('categories');
 			$User->cat_name = $_POST['cat_name'];
 			$User->cat_value = $_POST['cat_value'];

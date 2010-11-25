@@ -8,6 +8,22 @@ class ProductsAction extends Action
 	
 	public function AddProduct()
 	{
+		//$categories = new CategorieModel();
+		//$catres = $categories->Categorie();
+		//print_r($catres);
+		$User = D('categories');
+		$data = $User->where("cat_is_show = 1")->select();
+		$list = new TreeModel();
+		foreach ($data as $value) {
+			$list->setNode($value['cat_id'], $value['cat_pid'], $value['cat_name'], $value['cat_value'],$value['cat_sort']);
+		}
+		$getdata = $list->getChilds();
+		foreach ($getdata as $key => $id)
+		{
+			$cat_data[] = $list->getList($id);
+		}
+		//print_r($cat_data);
+		$this->assign('cat_list',$cat_data);
 		$this->display('add_product');
 	}
 	
